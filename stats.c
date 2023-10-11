@@ -9,13 +9,16 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief File to show the statistics of an given array
  *
- * <Add Extended Description Here>
+ *In this programming assignment you will create a simple application that performs statistical analytics on a dataset
+ *a simple application that performs statistical analytics on a dataset. We have eight functions "including main()"
+ *that perform some statistical operations like finding the maximum, the minimum, the mean, and the median. In addition
+ *to function that display the array unsorted and sorted.
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Saif Mohammed
+ * @date 11-Oct-2023
  *
  */
 
@@ -36,8 +39,39 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
+   print_statistics(SIZE,test);
+   printf("Array: \n");
+   print_array(SIZE,test);
+   printf("Sorted array: \n")
+   sort_array(SIZE,test);
+
+   return 0;
 
 }
 
 /* Add other Implementation File Code Here */
+int find_maximum(int size, unsigned char arr[]) {
+
+}
+
+int find_minimum(int size, unsigned char arr[]) {
+
+}
+
+float find_mean(int size, unsigned char arr[]) {
+
+}
+
+float find_median (int size, unsigned char arr[]) {
+
+}
+void print_array(int size, unsigned char arr[]){
+
+}
+void sort_array(int size, unsigned char arr[]){
+
+}
+void print_statistics(int size, unsigned char arr[]){
+
+}
+
