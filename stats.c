@@ -30,7 +30,7 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
-void main() {
+int main() {
 
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
@@ -42,7 +42,7 @@ void main() {
    print_statistics(SIZE,test);
    printf("Array: \n");
    print_array(SIZE,test);
-   printf("Sorted array: \n")
+   printf("Sorted array: \n");
    sort_array(SIZE,test);
 
    return 0;
@@ -52,26 +52,96 @@ void main() {
 /* Add other Implementation File Code Here */
 int find_maximum(int size, unsigned char arr[]) {
 
+	int max = arr[0];  // Initialize maxim with the first element of the array
+	for (int i = 1; i < size; i++){
+		if (arr[i] > max){
+			max = arr[i];
+		}
+	}
+	return max;
 }
 
 int find_minimum(int size, unsigned char arr[]) {
-
+	
+	int mini = arr[0];
+	for (int j = 1; j < size; j++){
+		if (arr[j] < mini){
+			mini = arr[j];
+		}
+	}
+	return mini;
 }
 
 float find_mean(int size, unsigned char arr[]) {
 
+	float sum = 0.0 ;
+	for (int k = 0; k < size; k++){
+		sum += arr[k];
+		}
+	float mean = sum / size;
+	return mean;
 }
 
 float find_median (int size, unsigned char arr[]) {
 
+	float median;
+	if (size % 2 != 0){
+		int middle = (size + 1) / 2;
+		median = arr[middle - 1]; // If it's odd, then the median is the middle value
+		}
+	if (size % 2 == 0){
+		int middle = size / 2;    
+		median = (arr[middle - 1] + arr[middle]) / 2; // If it's even, then the median is the mean of the two middle values
+		}
+	return median;
 }
+
 void print_array(int size, unsigned char arr[]){
 
+	printf("{");
+	for(int g = 0; g < size; g++){
+		
+		if( g == size - 1){
+			
+			printf("%d", arr[g]); // To print the last value in this shape ", 9}"
+		}
+		else {
+											
+			printf("%d, ", arr[g]);
+		}	
+				
+	}
+		
+	printf("}\n");
 }
+
 void sort_array(int size, unsigned char arr[]){
 
+	for (int d = 0; d < size; d++) { // Outer loop
+		for (int h = 0; h < size - d - 1; h++) { //Iner loop
+										
+			if (arr[h] < arr[h + 1]) {
+							
+				int temp = arr[h]; // Storing the arr[h] value in a temparary variable
+				arr[h] = arr[h + 1]; // Swaping the values from arr[h+1] to arr[h] 					
+				arr[h + 1] = temp; // Getting back the value in the temparary in a new position 
+			}
+			
+		}
+						
+	}
+	print_array(size, arr);
 }
 void print_statistics(int size, unsigned char arr[]){
 
+	// Printing all the function results
+	int maximum = find_maximum(size, arr);
+	int minimum = find_minimum(size, arr);
+	float mean = find_mean(size, arr);
+	float median = find_median(size, arr);
+	printf("Maximum value: %d\n", maximum);
+	printf("Minimum value: %d\n", minimum);
+	printf("Mean value: %.2f\n", mean);
+	printf("Median value: %.2f\n", median);
 }
 
