@@ -76,9 +76,9 @@ float find_mean(int size, unsigned char arr[]) {
 
 	float sum = 0.0 ;
 	for (int k = 0; k < size; k++){
-		sum += arr[k];
-		}
-	float mean = sum / size;
+		sum += arr[k]; // Looping over the array to get the sum
+	}
+	float mean = sum / size; // Dividing the sum by the number of the array values to get the mean 
 	return mean;
 }
 
@@ -88,11 +88,11 @@ float find_median (int size, unsigned char arr[]) {
 	if (size % 2 != 0){
 		int middle = (size + 1) / 2;
 		median = arr[middle - 1]; // If it's odd, then the median is the middle value
-		}
+	}
 	if (size % 2 == 0){
 		int middle = size / 2;    
 		median = (arr[middle - 1] + arr[middle]) / 2; // If it's even, then the median is the mean of the two middle values
-		}
+	}
 	return median;
 }
 
@@ -100,38 +100,30 @@ void print_array(int size, unsigned char arr[]){
 
 	printf("{");
 	for(int g = 0; g < size; g++){
-		
 		if( g == size - 1){
-			
 			printf("%d", arr[g]); // To print the last value in this shape ", 9}"
 		}
-		else {
-											
-			printf("%d, ", arr[g]);
-		}	
-				
+		else {								
+			printf("%d, ", arr[g]); // To print the values in this way {..., ..., ...}
+		}			
 	}
-		
 	printf("}\n");
 }
 
 void sort_array(int size, unsigned char arr[]){
 
 	for (int d = 0; d < size; d++) { // Outer loop
-		for (int h = 0; h < size - d - 1; h++) { //Iner loop
-										
+		for (int h = 0; h < size - d - 1; h++) { //Iner loop					
 			if (arr[h] < arr[h + 1]) {
-							
 				int temp = arr[h]; // Storing the arr[h] value in a temparary variable
-				arr[h] = arr[h + 1]; // Swaping the values from arr[h+1] to arr[h] 					
-				arr[h + 1] = temp; // Getting back the value in the temparary in a new position 
+				arr[h] = arr[h + 1]; // Swaping the values 					
+				arr[h + 1] = temp; // Getting back the value in the temparary at a new position 
 			}
-			
-		}
-						
+		}			
 	}
-	print_array(size, arr);
+	print_array(size, arr); // Printing the sorted array using print_array function
 }
+
 void print_statistics(int size, unsigned char arr[]){
 
 	// Printing all the function results
