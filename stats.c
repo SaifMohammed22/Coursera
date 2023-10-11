@@ -101,7 +101,7 @@ void print_array(int size, unsigned char arr[]){
 	printf("{");
 	for(int g = 0; g < size; g++){
 		if( g == size - 1){
-			printf("%d", arr[g]); // To print the last value in this shape ", 9}"
+			printf("%d", arr[g]); // To print the last value in this shape ", 90}"
 		}
 		else {								
 			printf("%d, ", arr[g]); // To print the values in this way {..., ..., ...}
